@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 
 import {MenuModule} from 'primeng/menu';
 import {MenuItem} from 'primeng/api';
+import {AutoCompleteModule} from 'primeng/autocomplete';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
@@ -16,6 +17,7 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     MenuModule,
+    AutoCompleteModule,
     BrowserModule,
     FormsModule,
     HttpModule,
