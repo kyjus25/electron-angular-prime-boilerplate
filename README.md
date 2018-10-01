@@ -2,10 +2,12 @@
 
 A boilerplate for using Angular2 to create multi-platform desktop apps in Electron. Currently runs with:
 
-- Angular v4.0.0
-- Angular-CLI v1.0.0
+- Angular v5.2.0
+- Angular-CLI v1.7.2
 - Electron v1.6.2
 - Electron-Packager v8.6.0
+- PrimeNG v6.1.4
+- PrimeIcons v1.0.0 Beta 10
 
 This app gives you the capability to:
 
