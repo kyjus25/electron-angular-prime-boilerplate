@@ -8,10 +8,9 @@ import {MenuItem} from 'primeng/api';
 })
 export class AppComponent implements OnInit {
   items: MenuItem[];
-  pokemonGetAll = JSON.parse( this.httpGet('https://pokeapi.co/api/v2/pokemon/') );
-  brands: string[];
+  brands = JSON.parse( this.httpGet('https://pokeapi.co/api/v2/pokemon/') ).results;
   filteredBrands: any[];
-  brand: string;
+  brand: string[];
 
   ngOnInit() {
     this.items = [
@@ -22,19 +21,17 @@ export class AppComponent implements OnInit {
       {label: 'Abilities', icon: 'fa fa-list'},
       {label: 'Gallery', icon: 'fa fa-camera'}
     ];
-
-    this.pokemonGetAll.results.forEach(pokemon => {
-      this.brands.push(pokemon.name);
-    });
-    console.log(this.pokemonGetAll);
   }
 
   filterBrands(event) {
     this.filteredBrands = [];
     for (let i = 0; i < this.brands.length; i++) {
       const brand = this.brands[i];
-      if (brand.toLowerCase().indexOf(event.query.toLowerCase()) === 0) {
-        this.filteredBrands.push(brand);
+      if (!brand.name.includes('-') ) {
+        if (brand.name.toLowerCase().indexOf(event.query.toLowerCase()) === 0) {
+          brand.id = i + 1;
+          this.filteredBrands.push(brand);
+        }
       }
     }
   }
