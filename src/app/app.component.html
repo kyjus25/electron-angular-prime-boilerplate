@@ -1,21 +1,28 @@
 <div class="ui-g">
   <div class="ui-g-2">
-    <div style="background-color: rgb(54, 127, 169);">
-      <img src="./assets/pokedex-logo.png" style='max-height: 33px; margin-bottom: 20px;'>
+    <div style="background-color: rgb(54, 127, 169); text-align: center;">
+      <img src="./assets/pokedex-logo.png" style='max-height: 33px; margin: 5px 0;'>
     </div>
-    <p-menu [model]="items"></p-menu>
+    <span style="color: #4b646f; background: #1a2226; font-size: 12px; padding: 10px; display: block;">
+      MAIN NAVIGATION
+    </span>
+    <p-menu [model]="items" styleClass="mainMenu"></p-menu>
   </div>
   <div class="ui-g-10">
     <div style="background-color: rgb(60, 141, 188);">
-    <p-autoComplete [(ngModel)]="brand" [suggestions]="filteredBrands" (completeMethod)="filterBrands($event)" field="name" [size]="30"
+    <p-autoComplete [(ngModel)]="pokemon" [suggestions]="filteredPokemons" (completeMethod)="filterPokemons($event)" field="upperName" [size]="30"
                     [minLength]="1" placeholder="Pokemon: " [dropdown]="true">
-      <ng-template let-brand pTemplate="item">
+      <ng-template let-pokemon pTemplate="item">
         <div class="ui-helper-clearfix" style="border-bottom:1px solid #D5D5D5">
-          <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{brand.id}}.png" style="width:32px;display:inline-block;margin:5px 0 2px 5px"/>
-          <div style="font-size:18px;float:right;margin:10px 10px 0 0">{{brand.name}}</div>
+          <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{pokemon.id}}.png" style="width:32px;display:inline-block;margin:5px 0 2px 5px"/>
+          <div style="font-size:18px;float:right;margin:10px 10px 0 0">{{pokemon.upperName}}</div>
         </div>
       </ng-template>
     </p-autoComplete>
       <div>
+  </div>
+</div>
+    <app-stats *ngIf="showStats"></app-stats>
+    <app-abilities *ngIf="showAbilities"></app-abilities>
   </div>
 </div>
