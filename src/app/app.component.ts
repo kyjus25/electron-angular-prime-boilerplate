@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {MenuItem} from 'primeng/api';
+import {Observable} from 'rxjs/Observable';
 
 @Component({
   selector: 'app-root',
@@ -10,9 +11,8 @@ export class AppComponent implements OnInit {
   items: MenuItem[];
   pokemons = JSON.parse( this.httpGet('https://pokeapi.co/api/v2/pokemon/') ).results;
   filteredPokemons: any[];
-  pokemon: string[] = [];
-
-  showPokemon = false;
+  pokemon = null;
+  pokemonData: string[] = [];
 
   showStats = true;
   showMoves = false;
@@ -20,6 +20,7 @@ export class AppComponent implements OnInit {
   showGames = false;
   showAbilities = false;
   showGallery = false;
+
 
   ngOnInit() {
     this.items = [
@@ -42,6 +43,13 @@ export class AppComponent implements OnInit {
         this.menuClicked(event);
       }}
     ];
+  }
+
+  calculatePokemonData(event) {
+    if (this.pokemon !== null) {
+      this.pokemonData = JSON.parse( this.httpGet(this.pokemon.url) );
+      console.log(this.pokemonData);
+    }
   }
 
   menuClicked(event) {
@@ -95,7 +103,6 @@ export class AppComponent implements OnInit {
         }
       }
     }
-    console.log(this.pokemon);
   }
 
   httpGet(theUrl) {
