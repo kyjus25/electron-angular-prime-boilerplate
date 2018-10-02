@@ -10,7 +10,7 @@
   </div>
   <div class="ui-g-10">
     <div style="background-color: rgb(60, 141, 188);">
-    <p-autoComplete [(ngModel)]="pokemon" [suggestions]="filteredPokemons" (completeMethod)="filterPokemons($event)" field="upperName" [size]="30"
+    <p-autoComplete [(ngModel)]="pokemon" [forceSelection]="true" [suggestions]="filteredPokemons" (completeMethod)="filterPokemons($event)" field="upperName" [size]="30"
                     [minLength]="1" placeholder="Pokemon: " [dropdown]="true">
       <ng-template let-pokemon pTemplate="item">
         <div class="ui-helper-clearfix" style="border-bottom:1px solid #D5D5D5">
@@ -22,7 +22,13 @@
       <div>
   </div>
 </div>
-    <app-stats *ngIf="showStats"></app-stats>
-    <app-abilities *ngIf="showAbilities"></app-abilities>
+    <div *ngIf="pokemon === null || pokemon.length === 0;else showPokeData">
+      <h1 style='margin: 25px;'>Select a Pokemon to get started!</h1>
+    </div>
+    <ng-template #showPokeData>
+      <h1 style='margin: 25px;'>{{pokemon.upperName}}</h1>
+      <app-stats *ngIf="showStats"></app-stats>
+      <app-abilities *ngIf="showAbilities"></app-abilities>
+    </ng-template>
   </div>
 </div>

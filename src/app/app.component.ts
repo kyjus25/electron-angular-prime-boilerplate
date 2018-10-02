@@ -10,7 +10,9 @@ export class AppComponent implements OnInit {
   items: MenuItem[];
   pokemons = JSON.parse( this.httpGet('https://pokeapi.co/api/v2/pokemon/') ).results;
   filteredPokemons: any[];
-  pokemon: string[];
+  pokemon: string[] = [];
+
+  showPokemon = false;
 
   showStats = true;
   showMoves = false;
@@ -84,15 +86,16 @@ export class AppComponent implements OnInit {
   filterPokemons(event) {
     this.filteredPokemons = [];
     for (let i = 0; i < this.pokemons.length; i++) {
-      const pokemon = this.pokemons[i];
-      if (!pokemon.name.includes('-') ) {
-        if (pokemon.name.toLowerCase().indexOf(event.query.toLowerCase()) === 0) {
-          pokemon.id = i + 1;
-          pokemon.upperName = pokemon.name.charAt(0).toUpperCase() + pokemon.name.substr(1);
-          this.filteredPokemons.push(pokemon);
+      const pokemonFind = this.pokemons[i];
+      pokemonFind.id = i + 1;
+      pokemonFind.upperName = pokemonFind.name.charAt(0).toUpperCase() + pokemonFind.name.substr(1);
+      if (!pokemonFind.name.includes('-') ) {
+        if (pokemonFind.name.toLowerCase().indexOf(event.query.toLowerCase()) === 0) {
+          this.filteredPokemons.push(pokemonFind);
         }
       }
     }
+    console.log(this.pokemon);
   }
 
   httpGet(theUrl) {
