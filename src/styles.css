@@ -10,6 +10,13 @@ body {
 .ui-menu {
   width: 100% !important;
 }
+body input {
+  border: 1px solid transparent !important;
+}
+body .ui-button {
+  background-color: rgb(54, 127, 169) !important;
+  border: 1px solid transparent !important;
+}
 .mainMenu li.active {
   background-color: #1e282c !important;
   border-radius: 0 !important;
