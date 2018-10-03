@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {ChangeDetectorRef, NgModule} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
@@ -13,7 +13,7 @@ import { TypesComponent } from './types.component';
 
 @NgModule({
   declarations: [
-    TypesComponent
+    TypesComponent,
   ],
   imports: [
     MenuModule,

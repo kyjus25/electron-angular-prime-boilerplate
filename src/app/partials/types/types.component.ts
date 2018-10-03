@@ -1,17 +1,19 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {MenuItem} from 'primeng/api';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-types',
   templateUrl: './types.component.html',
   styleUrls: ['./types.component.css']
 })
-export class TypesComponent implements OnInit {
+export class TypesComponent {
 
-  ngOnInit() {}
+  public types = ['hello', 'world'];
 
   generateTypes(pokemonData) {
-    console.log(pokemonData);
+    pokemonData.types.forEach(type => {
+      this.types.push(type.type.name);
+    });
+    console.log(this.types);
   }
 
   httpGet(theUrl) {

@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {MenuItem} from 'primeng/api';
 import {Observable} from 'rxjs/Observable';
+import {TypesComponent} from './partials/types/types.component';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,7 @@ import {Observable} from 'rxjs/Observable';
 })
 export class AppComponent implements OnInit {
   items: MenuItem[];
-  pokemons = JSON.parse( this.httpGet('https://pokeapi.co/api/v2/pokemon/') ).results; 
+  pokemons = JSON.parse( this.httpGet('https://pokeapi.co/api/v2/pokemon/') ).results;
   filteredPokemons: any[];
   pokemon = null;
   pokemonData: string[] = [];
@@ -21,6 +22,7 @@ export class AppComponent implements OnInit {
   showAbilities = false;
   showGallery = false;
 
+  constructor(public typesComponent: TypesComponent) {}
 
   ngOnInit() {
     this.items = [
@@ -48,7 +50,8 @@ export class AppComponent implements OnInit {
   calculatePokemonData(event) {
     if (this.pokemon !== null) {
       this.pokemonData = JSON.parse( this.httpGet(this.pokemon.url) );
-      console.log(this.pokemonData);
+      // console.log(this.pokemonData);
+      this.typesComponent.generateTypes(this.pokemonData);
     }
   }
 

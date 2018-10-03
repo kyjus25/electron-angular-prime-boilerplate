@@ -35,7 +35,7 @@ import {TypesComponent} from './partials/types/types.component';
     StatsModule,
     AbilitiesModule,
   ],
-  providers: [],
+  providers: [TypesComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
