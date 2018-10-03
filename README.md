@@ -23,3 +23,9 @@ npm start
 ## Build
 
 Run `npm run build-electron` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+
+## A Special Thanks
+
+PokéAPI available at https://pokeapi.co/<br>
+Icon made by Roundicons Freebies from www.flaticon.com<br>
+Original Boilerplate Electron App by [stokingerl](https://github.com/stokingerl/)
