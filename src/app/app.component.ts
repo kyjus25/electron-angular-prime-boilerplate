@@ -2,6 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {MenuItem} from 'primeng/api';
 import {Observable} from 'rxjs/Observable';
 import {TypesComponent} from './partials/types/types.component';
+import {Subject} from 'rxjs/Subject';
+import {BehaviorSubject} from 'rxjs/BehaviorSubject';
+import {ReplaySubject} from 'rxjs/ReplaySubject';
 
 @Component({
   selector: 'app-root',
@@ -21,8 +24,11 @@ export class AppComponent implements OnInit {
   showGames = false;
   showAbilities = false;
   showGallery = false;
+  private PokemonDataSubject: Subject<any>;
 
-  constructor(public typesComponent: TypesComponent) {}
+  constructor() {
+    this.PokemonDataSubject = new ReplaySubject(1);
+  }
 
   ngOnInit() {
     this.items = [
@@ -47,11 +53,15 @@ export class AppComponent implements OnInit {
     ];
   }
 
+  getPokemonData() {
+    return this.PokemonDataSubject;
+  }
+
   calculatePokemonData(event) {
     if (this.pokemon !== null) {
       this.pokemonData = JSON.parse( this.httpGet(this.pokemon.url) );
       // console.log(this.pokemonData);
-      this.typesComponent.generateTypes(this.pokemonData);
+      this.PokemonDataSubject.next(this.pokemonData);
     }
   }
 
