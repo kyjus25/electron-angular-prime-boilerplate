@@ -13,7 +13,15 @@ let mainWindow
 
 function createWindow () {
   // Create the browser window.
-  mainWindow = new BrowserWindow({width: 1000, height: 600, frame: false, minWidth: 900, minHeight: 500})
+  mainWindow = new BrowserWindow(
+    {
+      width: 1000,
+      height: 600,
+      frame: false,
+      minWidth: 900,
+      minHeight: 500,
+      icon: path.join(__dirname, 'assets/pokeball.png')
+    })
 
   // and load the index.html of the app.
   mainWindow.loadURL(url.format({
