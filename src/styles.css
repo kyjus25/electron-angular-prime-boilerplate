@@ -10,12 +10,28 @@ body {
 #close {
   position: fixed;
   top: 5px;
-  right: 15px;
   background-color: transparent;
   border: none;
   color: rgb(54, 127, 169);
   font-size: 30px;
   cursor: pointer;
+  padding: 0;
+  right: 10px;
+}
+p-card {
+  padding: 0 25px !important;
+  display: block !important;
+}
+.img p-card {
+  padding: 0 !important;
+}
+.img p-card > div, .img p-card img {
+  height: 182px !important;
+  width: 182px !important;
+  display: block !important;
+}
+.img .ui-card-body {
+  padding: 0 !important;
 }
 .ui-g-1, .ui-g-2, .ui-g-3, .ui-g-4, .ui-g-5, .ui-g-6, .ui-g-7, .ui-g-8, .ui-g-9, .ui-g-10, .ui-g-11, .ui-g-12 {
   padding: 0 !important;

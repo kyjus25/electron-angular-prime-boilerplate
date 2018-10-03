@@ -9,33 +9,21 @@ import {AutoCompleteModule} from 'primeng/autocomplete';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
-import { AppComponent } from './app.component';
-import {AbilitiesModule} from './abilities/abilities.module';
-import {StatsModule} from './stats/stats.module';
-import {StatsComponent} from './stats/stats.component';
-import {AbilitiesComponent} from './abilities/abilities.component';
-import {CardModule} from 'primeng/card';
-import {TypesComponent} from './partials/types/types.component';
+import { TypesComponent } from './types.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    StatsComponent,
-    AbilitiesComponent,
     TypesComponent
   ],
   imports: [
     MenuModule,
     AutoCompleteModule,
     BrowserModule,
-    CardModule,
     FormsModule,
     HttpModule,
     BrowserAnimationsModule,
-    StatsModule,
-    AbilitiesModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: []
 })
-export class AppModule { }
+export class TypesModule { }

@@ -27,8 +27,20 @@
     </div>
     <ng-template #showPokeData>
       <h1 style='margin: 25px;'>{{pokemon.upperName}}</h1>
-      <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{pokemon.id}}.png"/>
-      <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/{{pokemon.id}}.png"/>
+      <div class="ui-g">
+        <div class="ui-g-9">
+          <p-card>
+            <app-types (pokemonData)="pokemonData"></app-types>
+            <!-- <app-description></app-description> -->
+          </p-card>
+        </div>
+        <div class="ui-g-3 img">
+          <p-card>
+            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{pokemon.id}}.png"/>
+          </p-card>
+        </div>
+      </div>
+
       <app-stats *ngIf="showStats"></app-stats>
       <app-abilities *ngIf="showAbilities"></app-abilities>
     </ng-template>

@@ -9,7 +9,7 @@ import {Observable} from 'rxjs/Observable';
 })
 export class AppComponent implements OnInit {
   items: MenuItem[];
-  pokemons = JSON.parse( this.httpGet('https://pokeapi.co/api/v2/pokemon/') ).results;
+  pokemons = JSON.parse( this.httpGet('https://pokeapi.co/api/v2/pokemon/') ).results; 
   filteredPokemons: any[];
   pokemon = null;
   pokemonData: string[] = [];
