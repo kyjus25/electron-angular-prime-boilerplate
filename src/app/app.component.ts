@@ -60,7 +60,7 @@ export class AppComponent implements OnInit {
   calculatePokemonData(event) {
     if (this.pokemon !== null) {
       this.pokemonData = JSON.parse( this.httpGet(this.pokemon.url) );
-      // console.log(this.pokemonData);
+      console.log(this.pokemonData);
       this.PokemonDataSubject.next(this.pokemonData);
     }
   }

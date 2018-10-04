@@ -16,13 +16,15 @@ import {StatsComponent} from './stats/stats.component';
 import {AbilitiesComponent} from './abilities/abilities.component';
 import {CardModule} from 'primeng/card';
 import {TypesComponent} from './partials/types/types.component';
+import {DescriptionComponent} from './partials/description/description.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     StatsComponent,
     AbilitiesComponent,
-    TypesComponent
+    TypesComponent,
+    DescriptionComponent
   ],
   imports: [
     MenuModule,
@@ -35,7 +37,10 @@ import {TypesComponent} from './partials/types/types.component';
     StatsModule,
     AbilitiesModule,
   ],
-  providers: [TypesComponent],
+  providers: [
+    TypesComponent,
+    DescriptionComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

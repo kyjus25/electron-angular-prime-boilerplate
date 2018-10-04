@@ -4,7 +4,37 @@ body {
   margin: 0;
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,Arial,sans-serif;
   background-color: #ecf0f5;
+}
+.description {
+  margin-top: 1em;
+}
+.type {
+  display: inline-block;
+    padding: 5px 19px;
+    border-radius: 10px;
+    color: white;
+}
+.type.bug { background-color: #89970E; }
+.type.dark { background-color: #3C2D23; }
+.type.dark { background-color: #3C2D23; }
+.type.dragon { background-color: #735CDB; }
+.type.electric { background-color: #F7B314; }
+.type.fairy { background-color: #F4B2F4; }
+.type.fighting { background-color: #80331C; }
+.type.fire { background-color: #CA2301; }
+.type.flying { background-color: #93A5F1; }
+.type.ghost { background-color: #5E5EAF; }
+.type.grass { background-color: #72C135; }
+.type.ground { background-color: #D1B055; }
+.type.ice { background-color: #6DD3F5; }
+.type.normal { background-color: #C6C0B8; }
+.type.poison { background-color: #8E4290; }
+.type.psychic { background-color: #E74078; }
+.type.rock { background-color: #B49C52; }
+.type.steel { background-color: #B1B1C0; }
+.type.water { background-color: #3193F5; }
 
+.draggable {
   -webkit-app-region: drag;
 }
 #close {
