@@ -8,6 +8,10 @@ body {
 .description {
   margin-top: 1em;
 }
+.ui-g-5 p-card {
+  padding: 0 !important;
+  width: calc(100% - 30px);
+}
 .type {
   display: inline-block;
     padding: 5px 19px;
@@ -36,6 +40,7 @@ body {
 
 .draggable {
   -webkit-app-region: drag;
+  cursor: move;
 }
 #close {
   position: fixed;
@@ -55,9 +60,14 @@ p-card {
 .img p-card {
   padding: 0 !important;
 }
-.img p-card > div, .img p-card img {
-  height: 182px !important;
-  width: 182px !important;
+.img p-card:first-of-type > div, .img p-card:first-of-type img {
+  height: 178.33px !important;
+  width: 178.33px !important;
+  display: block !important;
+}
+.img p-card:last-of-type > div {
+  height: 100px !important;
+  width: 178.33px !important;
   display: block !important;
 }
 .img .ui-card-body {

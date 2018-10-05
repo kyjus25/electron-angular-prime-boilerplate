@@ -17,6 +17,7 @@ import {AbilitiesComponent} from './abilities/abilities.component';
 import {CardModule} from 'primeng/card';
 import {TypesComponent} from './partials/types/types.component';
 import {DescriptionComponent} from './partials/description/description.component';
+import {ChartModule} from 'primeng/chart';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import {DescriptionComponent} from './partials/description/description.component
   ],
   imports: [
     MenuModule,
+    ChartModule,
     AutoCompleteModule,
     BrowserModule,
     CardModule,

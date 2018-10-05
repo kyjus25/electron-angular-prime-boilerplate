@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {MenuItem} from 'primeng/api';
+import {Subject} from 'rxjs/Subject';
+import {AppComponent} from '../app.component';
 
 @Component({
   selector: 'app-stats',
@@ -7,39 +9,56 @@ import {MenuItem} from 'primeng/api';
   styleUrls: ['./stats.component.css']
 })
 export class StatsComponent implements OnInit {
-  items: MenuItem[];
-  pokemons = JSON.parse( this.httpGet('https://pokeapi.co/api/v2/pokemon/') ).results;
-  filteredPokemons: any[];
-  pokemon: string[];
+  public data;
+  public dataReturn = [];
+  private statsSubject: Subject<any>;
 
-  ngOnInit() {
-    this.items = [
-      {label: 'Stats', icon: 'fa fa-chart-bar', routerLink: 'stats'},
-      {label: 'Moves', icon: 'fa fa-gavel', routerLink: 'moves'},
-      {label: 'Encounters', icon: 'fa fa-map', routerLink: 'encounters'},
-      {label: 'Games', icon: 'fa fa-gamepad', routerLink: 'games'},
-      {label: 'Abilities', icon: 'fa fa-list', routerLink: 'abilities'},
-      {label: 'Gallery', icon: 'fa fa-camera', routerLink: 'gallery'}
-    ];
-  }
-
-  menuClicked(event) {
-    console.log(event);
-  }
-
-  filterPokemons(event) {
-    this.filteredPokemons = [];
-    for (let i = 0; i < this.pokemons.length; i++) {
-      const pokemon = this.pokemons[i];
-      if (!pokemon.name.includes('-') ) {
-        if (pokemon.name.toLowerCase().indexOf(event.query.toLowerCase()) === 0) {
-          pokemon.id = i + 1;
-          pokemon.upperName = pokemon.name.charAt(0).toUpperCase() + pokemon.name.substr(1);
-          this.filteredPokemons.push(pokemon);
-        }
-      }
+  constructor(public appComponent: AppComponent) {
+    this.data = {
+      datasets: [{
+        data: [
+          11,
+          16,
+          7,
+          3,
+          14
+        ],
+        backgroundColor: [
+          '#FF6384',
+          '#4BC0C0',
+          '#FFCE56',
+          '#E7E9ED',
+          '#36A2EB'
+        ],
+        label: 'My dataset'
+      }],
+      labels: [
+        'Red',
+        'Green',
+        'Yellow',
+        'Grey',
+        'Blue'
+      ]
     }
   }
+
+  ngOnInit() {
+    /*
+    this.appComponent.getPokemonData().subscribe(res => {
+      this.stats = this.calculateTypes(res);
+    });
+    */
+  }
+
+  /*
+  calculateTypes(statsObject) {
+    this.statsReturn = [];
+    statsObject.stats.forEach(type => {
+      this.statsReturn.push(type.type.name);
+    });
+    return this.statsReturn;
+  }
+  */
 
   httpGet(theUrl) {
     const xmlHttp = new XMLHttpRequest();
